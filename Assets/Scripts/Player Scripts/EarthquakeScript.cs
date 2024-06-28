@@ -6,10 +6,13 @@ public class EarthquakeScript : MonoBehaviour
 {
     public float moveSpeed;
 
+    public Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
+        rb.useGravity = true;
     }
 
     // Update is called once per frame

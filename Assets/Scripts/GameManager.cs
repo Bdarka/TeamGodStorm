@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public StatTracker StatTracker;
+
     public List<GameObject> objectsToDestroy = new List<GameObject>();
     public List<GameObject> objectsToSave = new List<GameObject>();
 
@@ -14,6 +16,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       StatTracker = GetComponent<StatTracker>();
+
        foreach(Transform t in destroyParent)
         {
             objectsToDestroy.Add(t.gameObject);
@@ -30,4 +34,6 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+
 }
