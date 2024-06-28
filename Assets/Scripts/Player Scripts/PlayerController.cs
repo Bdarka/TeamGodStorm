@@ -13,19 +13,12 @@ public enum DisasterType
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject defaultForm;
-
     // Seperates player abilities so that they have their own movement + colliders
     public EarthquakeScript earthquake;
     public TornadoScript tornado;
     public TsunamiScript tsunami;
 
-    // Physics Components
-    [HideInInspector]public Rigidbody rb;
-    public Collider myCollider;
-    public Vector3 movement;
-    public float moveSpeed;
-    [HideInInspector]public float x, z;
+
 
     // Switching to Different Forms
     public List<GameObject> disasterForms = new List<GameObject>(); 
@@ -33,82 +26,40 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        earthquake = GetComponent<EarthquakeScript>();
-        tornado = GetComponent<TornadoScript>();
-        tsunami = GetComponent<TsunamiScript>();
+        earthquake = disasterForms[2].gameObject.GetComponent<EarthquakeScript>();
+        tornado = disasterForms[1].gameObject.GetComponent<TornadoScript>();
+        tsunami = disasterForms[3].gameObject.GetComponent<TsunamiScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
-
-
-        x = Input.GetAxisRaw("Horizontal");
-        z = Input.GetAxisRaw("Vertical");
-
-
-        // Movement Buttons
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
-           // transform.position = new Vector3 (x, 0, z) * moveSpeed * Time.deltaTime;
-           // rb.velocity = new Vector3 (x, 0f, z);
-        }
-
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
-        {
-
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-
-        }
-
-
-        #region Form Switch Buttons
+        #region Form Change Inputs
         if (Input.GetKey(KeyCode.R))
         {
-            defaultForm.SetActive(false);
-            SwitchDisasterType("Earthquake");
+            SwitchForm("Earthquake");
         }
 
         if(Input.GetKey(KeyCode.E)) 
         {
-            earthquake.enabled = false;
-            tornado.enabled = true;
-            tsunami.enabled = false;
-            SwitchDisasterType("Tornado");
+            
+            SwitchForm("Tornado");
         }
 
         if (Input.GetKey(KeyCode.T))
         {
-            earthquake.enabled = false;
-            tornado.enabled = false;
-            tsunami.enabled = true;
-            SwitchDisasterType("Tsunami");
+            SwitchForm("Tsunami");
         }
 
         if( Input.GetKey(KeyCode.Q)) 
         {
-            
+            SwitchForm("Angel");
         }
 
         #endregion
     }
 
-    public void FixedUpdate()
-    {
-        rb.velocity = movement * moveSpeed * Time.fixedDeltaTime;
-    }
-
-    public void SwitchDisasterType(string newDisaster)
+    public void SwitchForm(string newDisaster)
     {
 
         for (int i = 0; i < disasterForms.Count; i++)
@@ -120,7 +71,6 @@ public class PlayerController : MonoBehaviour
             else
             {
                 disasterForms[i].gameObject.SetActive(true);
-                
             }
         }
     }

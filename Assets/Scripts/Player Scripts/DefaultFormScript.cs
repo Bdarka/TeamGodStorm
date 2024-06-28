@@ -2,20 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EarthquakeScript : MonoBehaviour
+public class DefaultFormScript : MonoBehaviour
 {
-    public PlayerController playerController;
-
-    public float moveSpeed;
+    // Physics Components
+    [HideInInspector] public Rigidbody rb;
+    public Collider myCollider;
     public Vector3 movement;
-
-    public Rigidbody rb;
+    public float moveSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.useGravity = true;
     }
 
     // Update is called once per frame
@@ -27,10 +25,5 @@ public class EarthquakeScript : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = movement * moveSpeed * Time.fixedDeltaTime;
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        rb.useGravity = false;
     }
 }
