@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9140195348255286452}
   - component: {fileID: 4369015008264737258}
-  - component: {fileID: 4351866353986643672}
-  - component: {fileID: 2421278850118287684}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -46,36 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef29ccb57f7560419d22584339bea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  earthquake: {fileID: 4351866353986643672}
+  defaultForm: {fileID: 0}
+  earthquake: {fileID: 0}
   tornado: {fileID: 0}
-  tsunami: {fileID: 2421278850118287684}
+  tsunami: {fileID: 0}
   rb: {fileID: 0}
   myCollider: {fileID: 0}
-  disasterModels: []
---- !u!114 &4351866353986643672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977835914758258304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d59d7ec3d7093d04d92beb21fe243ae3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
-  rb: {fileID: 0}
---- !u!114 &2421278850118287684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2977835914758258304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4388db4401d288841960fec78e2f640d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0
+  disasterForms: []
