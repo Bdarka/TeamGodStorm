@@ -27,7 +27,7 @@ public class EarthquakeScript : MonoBehaviour
     {
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
-        if(Input.GetKey(KeyCode.LeftShift))
+        if(Input.GetKeyDown(KeyCode.LeftShift))
         {
             Tremor();
         }
@@ -44,14 +44,14 @@ public class EarthquakeScript : MonoBehaviour
         attackCollider.enabled = true;
 
         Collider[] colliders = Physics.OverlapSphere(attackCollider.transform.position, attackCollider.radius);
+        GameObject prevCollision = null;
 
         foreach(Collider c in colliders)
         {
 
             Debug.Log("Hit Building" +  c.gameObject.name);
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
-
-            if(b != null)
+            if(b != null && c.gameObject != prevCollision)
             {
                 if(b.Weakness == BuildingScript.BuildingWeakness.Earthquake)
                 {
@@ -68,6 +68,8 @@ public class EarthquakeScript : MonoBehaviour
                     b.buildingHealth -= 3;
                 }
             }
+
+            prevCollision = c.gameObject;
         }
     }
 
