@@ -44,10 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef29ccb57f7560419d22584339bea06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultForm: {fileID: 0}
   earthquake: {fileID: 0}
   tornado: {fileID: 0}
   tsunami: {fileID: 0}
-  rb: {fileID: 0}
-  myCollider: {fileID: 0}
   disasterForms: []

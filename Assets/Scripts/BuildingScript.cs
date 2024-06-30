@@ -22,15 +22,19 @@ public class BuildingScript : MonoBehaviour
         Tsunami
     }
 
+    // Building Health variables
     public BuildingWeakness Weakness;
-    public BuildingResist Resist;
-
+    public BuildingResist Resistance;
     public int buildingHealth;
     public int buildingMaxHealth;
+
+    // Determines how much it affects the player's score
+    public int destructionPoints;
 
     // Start is called before the first frame update
     void Start()
     {
+
         for (int i = 0; i < buildingModels.Count; i++)
         {
             if (i == 0)
@@ -44,15 +48,28 @@ public class BuildingScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(string disaster)
     {
-        
+        if(disaster == Weakness.ToString())
+        {
+            buildingHealth -= 4;
+            
+        }
+        else if(disaster == Resistance.ToString())
+        {
+            buildingHealth -= 3;
+        }
+        else
+        {
+            buildingHealth -= 2;
+        }
+
+        ChangeSprite(buildingHealth, disaster);
     }
 
-    public void ChangeSprite(int health)
+    public void ChangeSprite(int health, string disaster)
     {
-        for(int i = 0;i < buildingModels.Count;i++)
+        for(int i = 0; i < buildingModels.Count;i++)
         {
             buildingModels[i].gameObject.SetActive(false);
         }
@@ -74,9 +91,10 @@ public class BuildingScript : MonoBehaviour
         if(health <= 0)
         {
             buildingModelCount++;
-            statTracker.IncrementBuildings();
+            statTracker.BuildingDestroyedBy(disaster, destructionPoints);
         }
 
         buildingModels[buildingModelCount].gameObject.SetActive(true);
     }
+
 }

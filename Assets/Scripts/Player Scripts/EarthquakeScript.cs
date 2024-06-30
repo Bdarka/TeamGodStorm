@@ -7,13 +7,13 @@ public class EarthquakeScript : MonoBehaviour
 {
     public PlayerController playerController;
     public Animator animator;
-    public Collider myCollider;
-    public SphereCollider attackCollider;
 
+    // Physics variables
+    public Rigidbody rb;
     public float moveSpeed;
     public Vector3 movement;
 
-    public Rigidbody rb;
+    public SphereCollider tremorCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -41,36 +41,22 @@ public class EarthquakeScript : MonoBehaviour
 
     public void Tremor()
     {
-        attackCollider.enabled = true;
+        tremorCollider.enabled = true;
 
-        Collider[] colliders = Physics.OverlapSphere(attackCollider.transform.position, attackCollider.radius);
+        Collider[] colliders = Physics.OverlapSphere(tremorCollider.transform.position, tremorCollider.radius);
         GameObject prevCollision = null;
 
         foreach(Collider c in colliders)
         {
-
             Debug.Log("Hit Building" +  c.gameObject.name);
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
             if(b != null && c.gameObject != prevCollision)
             {
-                if(b.Weakness == BuildingScript.BuildingWeakness.Earthquake)
-                {
-                    // Hurt the building 
-                    b.buildingHealth -= 4;
-                }
-                else if(b.Resist == BuildingScript.BuildingResist.Earthquake)
-                {
-                    // Hurt the building, but not as much 
-                    b.buildingHealth -= 2;
-                }   
-                else
-                {
-                    b.buildingHealth -= 3;
-                }
+                b.TakeDamage("Earthquake");
             }
-
             prevCollision = c.gameObject;
         }
+        tremorCollider.enabled = false;
     }
 
 
