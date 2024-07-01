@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
 
             if(objectsToDestroy.Count == 0)
             {
-
+                Debug.Log("You Win!");
             }
         }
     }

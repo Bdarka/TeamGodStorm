@@ -9,7 +9,7 @@ public class TornadoScript : MonoBehaviour
     // Physics variables
     public float moveSpeed;
     public Rigidbody rb;
-    public Vector3 movement;
+    [HideInInspector] public Vector3 movement;
 
     // I want to make the Tornado occasionally move beyond their control
     public float movementCount;

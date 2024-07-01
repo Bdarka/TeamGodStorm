@@ -11,7 +11,7 @@ public class EarthquakeScript : MonoBehaviour
     // Physics variables
     public Rigidbody rb;
     public float moveSpeed;
-    public Vector3 movement;
+    [HideInInspector] public Vector3 movement;
 
     public SphereCollider tremorCollider;
 

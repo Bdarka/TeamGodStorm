@@ -29,20 +29,7 @@ public class StatTracker : MonoBehaviour
 
         scoreDisplay.text = playerScore.ToString();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
-    public void ScoreUpdate(int points)
-    {
-        playerScore += points;
-        scoreDisplay.text = playerScore.ToString();
-    }
-
+  
     // Players love seeing these kinds of stats at the end of a game
     public void BuildingDestroyedBy(string disaster, int points)
     {
@@ -69,5 +56,11 @@ public class StatTracker : MonoBehaviour
 
         ScoreUpdate(points);
     }
-    
+
+    public void ScoreUpdate(int points)
+    {
+        playerScore += points;
+        scoreDisplay.text = "Score: " + playerScore.ToString();
+    }
+
 }

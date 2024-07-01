@@ -4,35 +4,68 @@ using UnityEngine;
 
 public class TsunamiScript : MonoBehaviour
 {
+    public PlayerController playerController;
+
+    // Physics variables
+    public Rigidbody rb;
     public float moveSpeed;
+    public float waveSpeed;
+    public Vector3 movement;
+
+    public SphereCollider waveCollider;
+    public bool isAttacking;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = playerController.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
-        {
+        movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
+        if(Input.GetKeyDown(KeyCode.LeftShift)) 
+        {
+            WaveCrash();
+        }
+    }
+
+    public void FixedUpdate()
+    {
+        if(isAttacking == true)
+        {
+            rb.velocity = movement * (moveSpeed * waveSpeed) * Time.fixedDeltaTime;
+            isAttacking = false;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+        else
         {
+            rb.velocity = movement * moveSpeed * Time.fixedDeltaTime;
+        }
+        
+    }
 
+    public void WaveCrash()
+    {
+        waveCollider.enabled = true;
+        isAttacking = true;
+
+        Collider[] colliders = Physics.OverlapSphere(waveCollider.transform.position, waveCollider.radius);
+        GameObject prevCollision = null;
+
+        foreach (Collider c in colliders)
+        {
+            // Debug.Log("Hit Building" + c.gameObject.name);
+            BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
+            if (b != null && c.gameObject != prevCollision)
+            {
+                b.TakeDamage("Tsunami");
+            }
+            prevCollision = c.gameObject;
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
-        {
-
-        }
-
-        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
-        {
-
-        }
+        waveCollider.enabled = false;
     }
 }
