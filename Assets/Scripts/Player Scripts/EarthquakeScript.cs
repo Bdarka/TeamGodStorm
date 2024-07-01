@@ -48,7 +48,7 @@ public class EarthquakeScript : MonoBehaviour
 
         foreach(Collider c in colliders)
         {
-            Debug.Log("Hit Building" +  c.gameObject.name);
+          //  Debug.Log("Hit Building" +  c.gameObject.name);
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
             if(b != null && c.gameObject != prevCollision)
             {

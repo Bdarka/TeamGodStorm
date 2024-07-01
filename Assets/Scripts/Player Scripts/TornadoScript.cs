@@ -56,19 +56,19 @@ public class TornadoScript : MonoBehaviour
     public void FixedUpdate()
     {
         rb.velocity = movement * (moveSpeed * randMove) * Time.fixedDeltaTime;
-
     }
 
     public void Vortex()
     {
         vortexCollider.enabled = true;
 
+        // Checking to see what is in the attack radius and makes sure we don't hit the same object twice
         Collider[] colliders = Physics.OverlapSphere(vortexCollider.transform.position, vortexCollider.radius);
         GameObject prevCollision = null;
 
         foreach (Collider c in colliders)
         {
-            Debug.Log("Hit Building" + c.gameObject.name);
+           // Debug.Log("Hit Building" + c.gameObject.name);
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
             if (b != null && c.gameObject != prevCollision)
             {

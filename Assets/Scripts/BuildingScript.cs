@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class BuildingScript : MonoBehaviour
 {
-    public List<GameObject> buildingModels = new List<GameObject>();
+    // To change how the building looks depending on damage level
+    public List<Mesh> buildingModels = new List<Mesh>();
+    public MeshFilter meshFilter;
+    private Collider myCollider;
+    private Rigidbody rb;
 
+    // Reports score and destruction
     public StatTracker statTracker;
 
     public enum BuildingWeakness
@@ -30,22 +35,18 @@ public class BuildingScript : MonoBehaviour
 
     // Determines how much it affects the player's score
     public int destructionPoints;
+    private int buildingModelCount = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        meshFilter = GetComponent<MeshFilter>();
+        meshFilter.mesh = buildingModels[0];
 
-        for (int i = 0; i < buildingModels.Count; i++)
-        {
-            if (i == 0)
-            {
-                buildingModels[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                buildingModels[i].gameObject.SetActive(false);
-            }
-        }
+        myCollider = GetComponent<Collider>();
+        rb = GetComponent<Rigidbody>();
+
+        statTracker = GameObject.FindObjectOfType<StatTracker>();
     }
 
     public void TakeDamage(string disaster)
@@ -69,32 +70,28 @@ public class BuildingScript : MonoBehaviour
 
     public void ChangeSprite(int health, string disaster)
     {
-        for(int i = 0; i < buildingModels.Count;i++)
-        {
-            buildingModels[i].gameObject.SetActive(false);
-        }
-
-        int buildingModelCount = 0;
 
         if(health == buildingMaxHealth)
         {
             buildingModelCount = 0;
         }
-        if(health <= 8)
+        if(health <= 5)
         {
-            buildingModelCount++;
-        }
-        if(health <= 4)
-        {
-            buildingModelCount++;
+            buildingModelCount = 1;
         }
         if(health <= 0)
         {
+            // Make the building change to destroyed, send information off the stat tracker and game manager
             buildingModelCount++;
             statTracker.BuildingDestroyedBy(disaster, destructionPoints);
+            statTracker.GetComponent<GameManager>().TrackBuildings(this.gameObject);
+
+            // Take this object out of physics calculations
+            Destroy(myCollider);
+            Destroy(rb);
         }
 
-        buildingModels[buildingModelCount].gameObject.SetActive(true);
+        meshFilter.mesh = buildingModels[buildingModelCount];
     }
 
 }

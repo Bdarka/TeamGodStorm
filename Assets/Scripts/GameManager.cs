@@ -35,5 +35,18 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void TrackBuildings(GameObject destroyedBuilding)
+    {
+        if(objectsToDestroy.Contains(destroyedBuilding))
+        {
+            objectsToDestroy.Remove(destroyedBuilding);
 
+            Debug.Log(objectsToDestroy.Count);
+
+            if(objectsToDestroy.Count == 0)
+            {
+
+            }
+        }
+    }
 }
