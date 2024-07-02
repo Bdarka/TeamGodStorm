@@ -2,21 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public StatTracker StatTracker;
 
+    // Keep track of what objects players need to destory. 
+    // Convoluted I know but I wanted to make it easy enough for non-programmers to add it it
     public List<GameObject> objectsToDestroy = new List<GameObject>();
     public List<GameObject> objectsToSave = new List<GameObject>();
-
     public Transform destroyParent;
     public Transform saveParent;
+
+    public TextMeshProUGUI tempText;
 
     // Start is called before the first frame update
     void Start()
     {
-       StatTracker = GetComponent<StatTracker>();
+        tempText.enabled = false;
+        StatTracker = GetComponent<StatTracker>();
 
        foreach(Transform t in destroyParent)
         {
@@ -45,7 +50,8 @@ public class GameManager : MonoBehaviour
 
             if(objectsToDestroy.Count == 0)
             {
-                Debug.Log("You Win!");
+                tempText.enabled = true;
+                tempText.text = "You Win! You saved the planet!";
             }
         }
     }
