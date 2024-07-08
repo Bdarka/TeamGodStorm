@@ -6,6 +6,8 @@ public class DefaultFormScript : MonoBehaviour
 {
     // Physics Components
     [HideInInspector] public Rigidbody rb;
+
+    public PlayerController playerController;
     public Collider myCollider;
     public Vector3 movement;
     public float moveSpeed;
@@ -13,7 +15,8 @@ public class DefaultFormScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb = playerController.GetComponent<Rigidbody>();
+        rb.useGravity = false;
     }
 
     // Update is called once per frame
