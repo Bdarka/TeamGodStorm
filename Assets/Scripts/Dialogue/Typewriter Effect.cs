@@ -7,9 +7,10 @@ using System;
 public class TypewriterEffect : MonoBehaviour
 {
     [SerializeField] private float typeSpeed = 25f; //SPEED
-    public void Run(string textToType, TMP_Text textLable){
 
-        StartCoroutine(TypeText(textToType, textLable));
+    public Coroutine Run(string textToType, TMP_Text textLable){
+
+        return StartCoroutine(TypeText(textToType, textLable));
     }
 
 
@@ -17,7 +18,6 @@ public class TypewriterEffect : MonoBehaviour
     //Types out string values.
     private IEnumerator TypeText(string textToType, TMP_Text textLabel){
 
-        yield return new WaitForSeconds(3); //Time to wait before text shows.
         
         float t = 0;
         int charIndex = 0;  //holds whole number of length.

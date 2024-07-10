@@ -813,7 +813,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb8e548db3ef8ae46a18bb0486f570e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dialogueBox: {fileID: 1008900295}
   textLabel: {fileID: 902604961}
+  testDialogue: {fileID: 11400000, guid: 70c7ebb8e35e50f47b19763e8e3e29eb, type: 2}
 --- !u!114 &698636190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,11 +1042,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'New text
-
-    New text
-
-    New text'
+  m_text: You are enough.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1071,7 +1069,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 67.3
+  m_fontSize: 72
   m_fontSizeBase: 68
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3167,8 +3165,8 @@ SceneRoots:
   m_Roots:
   - {fileID: 2044541051}
   - {fileID: 191151310}
-  - {fileID: 994457128}
   - {fileID: 1884530481}
+  - {fileID: 994457128}
   - {fileID: 2116423719}
   - {fileID: 524517198}
   - {fileID: 1863270847554880450}
