@@ -12,6 +12,9 @@ public class DefaultFormScript : MonoBehaviour
     public Vector3 movement;
     public float moveSpeed;
 
+    public bool canPressSpace;
+    public SphereCollider canITalk;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,24 @@ public class DefaultFormScript : MonoBehaviour
     void Update()
     {
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
+
+        if(Input.GetKeyDown(KeyCode.Space) && canPressSpace == true)
+        {
+            Collider[] colliders = Physics.OverlapSphere(canITalk.transform.position, canITalk.radius);
+
+            foreach (Collider c in colliders)
+            {
+                /* NPCScript npc = c.GetComponent<NPCScript>();
+                 if(npc != null)
+                 {
+                    // Start dialog system
+                break;
+                }   
+                */
+            }
+
+
+        }
     }
 
     private void FixedUpdate()
