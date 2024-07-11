@@ -817,6 +817,7 @@ MonoBehaviour:
   dialogueBox: {fileID: 1008900295}
   textLabel: {fileID: 902604961}
   testDialogue: {fileID: 11400000, guid: 70c7ebb8e35e50f47b19763e8e3e29eb, type: 2}
+  image: {fileID: 0}
 --- !u!114 &698636190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1303,7 +1304,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1108332453}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.24546885, y: -0, z: -0, w: 0.9694045}
+  m_LocalRotation: {x: 0.24546881, y: -0, z: -0, w: 0.9694045}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1382,7 +1383,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139028220}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26306123, y: -0, z: -0, w: 0.96477914}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1774,7 +1775,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570400681}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da6f7626d4e65e74b9ba27faada19cb5, type: 3}
   m_Name: 
@@ -1782,6 +1783,9 @@ MonoBehaviour:
   audioSource: {fileID: 1570400684}
   audioClips:
   - {fileID: 8300000, guid: aa600c1bf16f32e4e934e1625ce56996, type: 3}
+  - {fileID: 8300000, guid: 37db7cf206304cb47ae14f0571663fbe, type: 3}
+  - {fileID: 8300000, guid: 29aaabeeebdb6174b9ef2e1f4886dfec, type: 3}
+  - {fileID: 8300000, guid: 592af9711b2abee4283f035ce26dbdaf, type: 3}
   songCount: 0
   isFocused: 0
 --- !u!82 &1570400684
@@ -2746,6 +2750,10 @@ PrefabInstance:
       propertyPath: defaultForm
       value: 
       objectReference: {fileID: 1535610715}
+    - target: {fileID: 4369015008264737258, guid: 9ca2fe662e8937d478d8c303bf454f7c, type: 3}
+      propertyPath: musicManager
+      value: 
+      objectReference: {fileID: 1570400683}
     - target: {fileID: 4369015008264737258, guid: 9ca2fe662e8937d478d8c303bf454f7c, type: 3}
       propertyPath: disasterForms.Array.size
       value: 4

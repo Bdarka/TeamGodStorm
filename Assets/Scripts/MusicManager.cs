@@ -29,4 +29,21 @@ public class MusicManager : MonoBehaviour
     {
         isFocused = focus;
     }
+
+    public void ChangeSong(string newSong)
+    {
+        float prevSongTime = audioSource.time;
+        audioSource.Stop();
+
+        for (int i = 0; i < audioClips.Count; i++)
+        {
+            if (audioClips[i].name == newSong)
+            {
+                audioSource.clip = audioClips[i];
+                audioSource.time = prevSongTime;
+                audioSource.Play();
+                break;
+            }
+        }
+    }
 }

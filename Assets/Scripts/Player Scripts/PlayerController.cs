@@ -18,10 +18,10 @@ public class PlayerController : MonoBehaviour
     public TornadoScript tornado;
     public TsunamiScript tsunami;
 
-
-
     // Switching to Different Forms
-    public List<GameObject> disasterForms = new List<GameObject>(); 
+    public List<GameObject> disasterForms = new List<GameObject>();
+
+    public MusicManager musicManager;
 
     // Start is called before the first frame update
     void Start()
@@ -38,22 +38,25 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             SwitchForm("Earthquake");
+            musicManager.ChangeSong("crawl");
         }
 
         if(Input.GetKey(KeyCode.E)) 
-        {
-            
+        { 
             SwitchForm("Tornado");
+            musicManager.ChangeSong("Honey Revenge - Airhead");
         }
 
         if (Input.GetKey(KeyCode.T))
         {
             SwitchForm("Tsunami");
+            musicManager.ChangeSong("Sabrina Carpenter-Espresso");
         }
 
         if( Input.GetKey(KeyCode.Q)) 
         {
             SwitchForm("Angel");
+            musicManager.ChangeSong("RATATATA");
         }
 
         #endregion
