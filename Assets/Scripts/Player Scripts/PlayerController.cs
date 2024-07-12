@@ -7,7 +7,8 @@ public enum DisasterType
 {
     Earthquake, 
     Tornado, 
-    Tsunami
+    Tsunami,
+    Fire
 }
 
 

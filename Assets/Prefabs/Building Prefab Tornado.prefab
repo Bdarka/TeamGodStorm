@@ -115,7 +115,7 @@ MonoBehaviour:
   meshFilter: {fileID: 5490235772533102728}
   statTracker: {fileID: 0}
   Weakness: 1
-  Resistance: 0
+  Resistance: 3
   buildingHealth: 12
   buildingMaxHealth: 12
   destructionPoints: 0

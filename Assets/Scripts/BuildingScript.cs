@@ -5,8 +5,13 @@ using UnityEngine;
 public class BuildingScript : MonoBehaviour
 {
     // To change how the building looks depending on damage level
-    public List<Mesh> buildingModels = new List<Mesh>();
-    public MeshFilter meshFilter;
+    // commenting out 3D until sprites work
+    // public List<Mesh> buildingModels = new List<Mesh>();
+    // public MeshFilter meshFilter;
+    public List<Sprite> buildingSprites = new List<Sprite>();
+    public SpriteRenderer mySprite;
+    private int buildingSpriteCount = 0;
+    public Transform cam;
     private Collider myCollider;
     private Rigidbody rb;
 
@@ -17,14 +22,16 @@ public class BuildingScript : MonoBehaviour
     {
         Earthquake,
         Tornado,
-        Tsunami
+        Tsunami,
+        Fire
     }
 
     public enum BuildingResist
     {
         Earthquake,
         Tornado,
-        Tsunami
+        Tsunami,
+        Fire
     }
 
     // Building Health variables
@@ -35,18 +42,27 @@ public class BuildingScript : MonoBehaviour
 
     // Determines how much it affects the player's score
     public int destructionPoints;
-    private int buildingModelCount = 0;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        meshFilter = GetComponent<MeshFilter>();
-        meshFilter.mesh = buildingModels[0];
+       // meshFilter = GetComponent<MeshFilter>();
+       // meshFilter.mesh = buildingModels[0];
+       cam = Camera.main.transform;
+
+        mySprite = GetComponent<SpriteRenderer>();
+        mySprite.sprite = buildingSprites[0];
 
         myCollider = GetComponent<Collider>();
         rb = GetComponent<Rigidbody>();
 
         statTracker = GameObject.FindObjectOfType<StatTracker>();
+    }
+
+    public void LateUpdate()
+    {
+        transform.LookAt(transform.position + cam.forward);
     }
 
     public void TakeDamage(string disaster)
@@ -73,16 +89,16 @@ public class BuildingScript : MonoBehaviour
 
         if(health == buildingMaxHealth)
         {
-            buildingModelCount = 0;
+            buildingSpriteCount = 0;
         }
         if(health <= 5)
         {
-            buildingModelCount = 1;
+            buildingSpriteCount = 1;
         }
         if(health <= 0)
         {
             // Make the building change to destroyed, send information off the stat tracker and game manager
-            buildingModelCount++;
+            buildingSpriteCount++;
             statTracker.BuildingDestroyedBy(disaster, destructionPoints);
             statTracker.GetComponent<GameManager>().TrackBuildings(this.gameObject);
 
@@ -91,7 +107,8 @@ public class BuildingScript : MonoBehaviour
             Destroy(rb);
         }
 
-        meshFilter.mesh = buildingModels[buildingModelCount];
+        // meshFilter.mesh = buildingModels[buildingSpriteCount];
+        mySprite.sprite = buildingSprites[buildingSpriteCount];
     }
 
 }
