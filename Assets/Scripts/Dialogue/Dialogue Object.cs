@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 
@@ -8,6 +9,8 @@ using UnityEngine;
 public class DialogueObject : ScriptableObject
 {
     [SerializeField] [TextArea] private string[] dialogue;
+    [SerializeField] public Image portriatLeft;
+    [SerializeField] public Image portraitRight;
 
     public string[] Dialogue => dialogue;
 }

@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+
+
 
 public class DefaultFormScript : MonoBehaviour
 {
     // Physics Components
     [HideInInspector] public Rigidbody rb;
+    [SerializeField] private DialogueUI dialogueUI;
 
     public PlayerController playerController;
     public Collider myCollider;
     public Vector3 movement;
     public float moveSpeed;
+    public DialogueUI DialogueUI => dialogueUI;
+    public IInteractable Interactable {get; set;}
 
     public bool canPressSpace;
     public SphereCollider canITalk;
@@ -43,6 +49,11 @@ public class DefaultFormScript : MonoBehaviour
             }
 
 
+        }
+
+        if(Input.GetKeyDown(KeyCode.F)){
+
+            Interactable?.Ineract(this);
         }
     }
 

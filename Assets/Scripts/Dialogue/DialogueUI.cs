@@ -12,22 +12,33 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] private GameObject dialogueBox;
     [SerializeField] private TMP_Text textLabel;
     [SerializeField] private DialogueObject testDialogue;
-    [SerializeField] private Image image;
+    [SerializeField] public GameObject portrait0;
+    [SerializeField] public GameObject portriat1;
 
 
+    public bool IsOpen{get; private set;}
     private TypewriterEffect typewriterEffect;
 
     // Start is called before the first frame update
     private void Start(){
         typewriterEffect = GetComponent<TypewriterEffect>();
         CloseDialogueBox();
-        ShowdDialogue(testDialogue);
+        portrait0.SetActive(false);
+        portriat1.SetActive(false);
+        //ShowDialogue(testDialogue);
+
     }
     
-    public void ShowdDialogue(DialogueObject dialogueObject){
+    public void ShowDialogue(DialogueObject dialogueObject){
+        IsOpen = true;
+        
         dialogueBox.SetActive(true);
+        portrait0.SetActive(true);
+        portriat1.SetActive(true);
+
         StartCoroutine(StepThroughDialogue(dialogueObject));
     }
+
 
     private IEnumerator StepThroughDialogue(DialogueObject dialogueObject){
         foreach (string dialogue in dialogueObject.Dialogue){
@@ -40,8 +51,11 @@ public class DialogueUI : MonoBehaviour
     }
 
     private void CloseDialogueBox(){
+        IsOpen = false;
         dialogueBox.SetActive(false);
         textLabel.text = string.Empty;
+        portrait0.SetActive(false);
+        portriat1.SetActive(false);
     }
 
 }
