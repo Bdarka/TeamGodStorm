@@ -11,7 +11,6 @@ public enum DisasterType
     Fire
 }
 
-
 public class PlayerController : MonoBehaviour
 {
     // Seperates player abilities so that they have their own movement + colliders
@@ -24,6 +23,11 @@ public class PlayerController : MonoBehaviour
 
     public MusicManager musicManager;
 
+    [HideInInspector] public bool canQuake;
+    [HideInInspector] public bool canTornado;
+    [HideInInspector] public bool canFire;
+    [HideInInspector] public bool canTsunami;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,29 +39,39 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        #region Form Change Inputs
-        if (Input.GetKey(KeyCode.R))
-        {
-            SwitchForm("Earthquake");
-            musicManager.ChangeSong("crawl");
-        }
-
-        if(Input.GetKey(KeyCode.E)) 
-        { 
-            SwitchForm("Tornado");
-            musicManager.ChangeSong("Honey Revenge - Airhead");
-        }
-
-        if (Input.GetKey(KeyCode.T))
-        {
-            SwitchForm("Tsunami");
-            musicManager.ChangeSong("Sabrina Carpenter-Espresso");
-        }
-
-        if( Input.GetKey(KeyCode.Q)) 
+        if (Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Keypad1))
         {
             SwitchForm("Angel");
-            musicManager.ChangeSong("RATATATA");
+            musicManager.ChangeSong("Calm (Demo)");
+        }
+
+        #region Form Change Inputs
+        if (Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Keypad2)
+            && canQuake == true)
+        {
+            SwitchForm("Earthquake");
+            musicManager.ChangeSong("Earth (Demo)");
+        }
+
+        if(Input.GetKey(KeyCode.Alpha3) || Input.GetKey(KeyCode.Keypad3)
+            && canTornado == true) 
+        { 
+            SwitchForm("Tornado");
+            musicManager.ChangeSong("Wind (Demo)");
+        }
+
+        if (Input.GetKey(KeyCode.Alpha4) || Input.GetKey(KeyCode.Keypad4)
+            && canTsunami == true)
+        {
+            SwitchForm("Tsunami");
+            musicManager.ChangeSong("Water (Demo)");
+        }
+
+        if(Input.GetKey(KeyCode.Alpha5) || Input.GetKey(KeyCode.Keypad5)
+            && canFire == true)
+        {
+            SwitchForm("Fire");
+            musicManager.ChangeSong("Fire (Demo)");
         }
 
         #endregion

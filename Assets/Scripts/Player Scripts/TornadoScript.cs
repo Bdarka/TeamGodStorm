@@ -37,7 +37,7 @@ public class TornadoScript : MonoBehaviour
 
             if(randRoll <= 25) 
             {
-                randMove = randRoll;
+                randMove = 1.25f;
             }
             else
             {

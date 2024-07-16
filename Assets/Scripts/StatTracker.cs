@@ -11,6 +11,7 @@ public class StatTracker : MonoBehaviour
     public int earthquakeDestroyed;
     public int tornadoDestroyed;
     public int tsunamiDestroyed;
+    public int fireDestroyed;
 
 
     public TextMeshProUGUI scoreDisplay;
@@ -25,6 +26,7 @@ public class StatTracker : MonoBehaviour
         earthquakeDestroyed = 0;
         tornadoDestroyed = 0;
         tsunamiDestroyed = 0;
+        fireDestroyed = 0;
         #endregion
 
         scoreDisplay.text = playerScore.ToString();
@@ -50,6 +52,11 @@ public class StatTracker : MonoBehaviour
             case "Tsunami":
                 {
                     tsunamiDestroyed++;
+                    break;
+                }
+            case "Fire":
+                {
+                    fireDestroyed++;
                     break;
                 }
         }
