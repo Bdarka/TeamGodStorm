@@ -17,3 +17,4 @@ public class Billboard : MonoBehaviour
                          mainCamera.transform.rotation * Vector3.up);
     }
 }
+ 
