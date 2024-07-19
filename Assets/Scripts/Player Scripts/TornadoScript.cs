@@ -60,6 +60,7 @@ public class TornadoScript : MonoBehaviour
 
     public void Vortex()
     {
+        playerController.sFXManager.PlaySFX("Wind - (GODSTORM)");
         vortexCollider.enabled = true;
 
         // Checking to see what is in the attack radius and makes sure we don't hit the same object twice

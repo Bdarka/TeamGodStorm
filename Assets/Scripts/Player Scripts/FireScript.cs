@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EarthquakeScript : MonoBehaviour
+public class FireScript : MonoBehaviour
 {
+    // 
     public PlayerController playerController;
-    public Animator animator;
 
-    // Physics variables
+    // Physics
     public Rigidbody rb;
     public float moveSpeed;
     [HideInInspector] public Vector3 movement;
 
-    public SphereCollider tremorCollider;
+    // Attack Collider
+    public SphereCollider flameCollider;
+
 
     // Start is called before the first frame update
     void Start()
@@ -27,46 +29,34 @@ public class EarthquakeScript : MonoBehaviour
     {
         movement = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical")).normalized;
 
-        if(Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            Tremor();
+            FlameOn();
         }
     }
-
-
     private void FixedUpdate()
     {
         rb.velocity = movement * moveSpeed * Time.fixedDeltaTime;
     }
 
-    public void Tremor()
+    public void FlameOn()
     {
-        playerController.sFXManager.PlaySFX("Earth - (GODSTORM)");
-        tremorCollider.enabled = true;
+        flameCollider.enabled = true;
+        playerController.sFXManager.PlaySFX("Fire - (GODSTORM)");
 
-        Collider[] colliders = Physics.OverlapSphere(tremorCollider.transform.position, tremorCollider.radius);
+        Collider[] colliders = Physics.OverlapSphere(flameCollider.transform.position, flameCollider.radius);
         GameObject prevCollision = null;
 
-        foreach(Collider c in colliders)
+        foreach (Collider c in colliders)
         {
-          //  Debug.Log("Hit Building" +  c.gameObject.name);
+            //  Debug.Log("Hit Building" +  c.gameObject.name);
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
-            if(b != null && c.gameObject != prevCollision)
+            if (b != null && c.gameObject != prevCollision)
             {
-                b.TakeDamage("Earthquake");
+                b.TakeDamage("Fire");
             }
             prevCollision = c.gameObject;
         }
-        tremorCollider.enabled = false;
-    }
-
-
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "Ground")
-        {
-            rb.useGravity = false;
-        }
+        flameCollider.enabled = false;
     }
 }

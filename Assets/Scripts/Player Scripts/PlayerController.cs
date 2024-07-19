@@ -21,7 +21,9 @@ public class PlayerController : MonoBehaviour
     // Switching to Different Forms
     public List<GameObject> disasterForms = new List<GameObject>();
 
+    // Audio Components
     public MusicManager musicManager;
+    public SFXManager sFXManager;
 
     [HideInInspector] public bool canQuake;
     [HideInInspector] public bool canTornado;
@@ -51,6 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             SwitchForm("Earthquake");
             musicManager.ChangeSong("Earth (Demo)");
+            sFXManager.PlaySFX("Earth - (GODSTORM)");
         }
 
         if(Input.GetKey(KeyCode.Alpha3) || Input.GetKey(KeyCode.Keypad3)
@@ -58,6 +61,7 @@ public class PlayerController : MonoBehaviour
         { 
             SwitchForm("Tornado");
             musicManager.ChangeSong("Wind (Demo)");
+            sFXManager.PlaySFX("Wind - (GODSTORM)");
         }
 
         if (Input.GetKey(KeyCode.Alpha4) || Input.GetKey(KeyCode.Keypad4)
@@ -65,6 +69,7 @@ public class PlayerController : MonoBehaviour
         {
             SwitchForm("Tsunami");
             musicManager.ChangeSong("Water (Demo)");
+            sFXManager.PlaySFX("Water - (GODSTORM)");
         }
 
         if(Input.GetKey(KeyCode.Alpha5) || Input.GetKey(KeyCode.Keypad5)
@@ -72,6 +77,7 @@ public class PlayerController : MonoBehaviour
         {
             SwitchForm("Fire");
             musicManager.ChangeSong("Fire (Demo)");
+            sFXManager.PlaySFX("Fire - (GODSTORM)");
         }
 
         #endregion

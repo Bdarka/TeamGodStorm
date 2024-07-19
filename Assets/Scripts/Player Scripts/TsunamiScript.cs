@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class TsunamiScript : MonoBehaviour
 {
@@ -51,6 +52,8 @@ public class TsunamiScript : MonoBehaviour
     {
         waveCollider.enabled = true;
         isAttacking = true;
+
+        playerController.sFXManager.PlaySFX("Water - (GODSTORM)");
 
         Collider[] colliders = Physics.OverlapSphere(waveCollider.transform.position, waveCollider.radius);
         GameObject prevCollision = null;
