@@ -22,15 +22,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 58dde22e5e188ac46847391028e6d1ba, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -147.8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 58dde22e5e188ac46847391028e6d1ba, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -75.9729
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 58dde22e5e188ac46847391028e6d1ba, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 54.2697
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 58dde22e5e188ac46847391028e6d1ba, type: 3}
       propertyPath: m_LocalRotation.w
@@ -137,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 12fd102ca09e1604db897e28b9b4a54b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a556c241c2553f46a98bf677ddfaf28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSprites:
-  - {fileID: 21300000, guid: 12fd102ca09e1604db897e28b9b4a54b, type: 3}
-  - {fileID: 21300000, guid: e83e5cc60fcf78646863b4b53c5d1d55, type: 3}
-  - {fileID: 21300000, guid: 46ac8fbda99fbd04da727c154d146ce1, type: 3}
+  - {fileID: 21300000, guid: 4a556c241c2553f46a98bf677ddfaf28, type: 3}
+  - {fileID: 21300000, guid: ae41cf484f6f0044eacb362770453f12, type: 3}
+  - {fileID: 21300000, guid: 991e7eadd620ec04b8b5541c4ecebd29, type: 3}
   mySprite: {fileID: 7386193382167778955}
   cam: {fileID: 0}
   statTracker: {fileID: 0}
@@ -191,8 +191,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1.6499999, z: 2}
-  m_Center: {x: 0, y: 0.8249999, z: 2.9309885e-15}
+  m_Size: {x: 4.55, y: 8.35, z: 3.2547219}
+  m_Center: {x: 0, y: 4.175, z: 0.0817338}
 --- !u!54 &3750314480233901545
 Rigidbody:
   m_ObjectHideFlags: 0

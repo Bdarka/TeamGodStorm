@@ -137,7 +137,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 248f89577d83c9a4aa00dd01e6c62c3f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4123e52ab7dbe434bbf751726a08d2ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,9 +161,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingSprites:
-  - {fileID: 21300000, guid: 248f89577d83c9a4aa00dd01e6c62c3f, type: 3}
-  - {fileID: 21300000, guid: ab586534bae9b38419dd3989db20f08a, type: 3}
-  - {fileID: 21300000, guid: 4ecef122d6cd2204a8d20d635f6dff23, type: 3}
+  - {fileID: 21300000, guid: 4123e52ab7dbe434bbf751726a08d2ac, type: 3}
+  - {fileID: 21300000, guid: 2963d3b22be8cc34fbb3cd6e8f913e48, type: 3}
+  - {fileID: 21300000, guid: 3f7d1826f85dba045b2f8cf7f96cc1e3, type: 3}
   mySprite: {fileID: 5616781826995859410}
   cam: {fileID: 0}
   statTracker: {fileID: 0}
@@ -191,8 +191,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2, y: 1.6499999, z: 2}
-  m_Center: {x: 0, y: 0.8249999, z: 2.9309885e-15}
+  m_Size: {x: 6.7399993, y: 5.72, z: 5.9832916}
+  m_Center: {x: 0, y: 2.86, z: 0.25328588}
 --- !u!54 &4431181434138701474
 Rigidbody:
   m_ObjectHideFlags: 0
