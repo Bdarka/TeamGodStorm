@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -16,6 +17,9 @@ public class GameManager : MonoBehaviour
     public Transform saveParent;
 
     public TextMeshProUGUI tempText;
+
+    public Scene GoodEnd;
+    public Scene BadEnd;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +57,21 @@ public class GameManager : MonoBehaviour
                 tempText.enabled = true;
                 tempText.text = "You Win! You saved the planet!";
             }
+        }
+    }
+
+    public void ShowEnding()
+    {
+        int score = StatTracker.playerScore;
+
+        if(score > 0)
+        {
+            SceneManager.LoadScene(GoodEnd.name);
+        }
+
+        else
+        {
+            SceneManager.LoadScene(BadEnd.name);
         }
     }
 }
