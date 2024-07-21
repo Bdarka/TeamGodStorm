@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public enum DisasterType
@@ -13,6 +14,14 @@ public enum DisasterType
 
 public class PlayerController : MonoBehaviour
 {
+    // Audio Components
+    public MusicManager musicManager;
+    public SFXManager sFXManager;
+
+    // Portrait Switch 
+    public UnityEngine.UI.Image portraitSprite;
+    public List<Sprite> portraitSpritesList = new List<Sprite>();
+
     // Seperates player abilities so that they have their own movement + colliders
     public EarthquakeScript earthquake;
     public TornadoScript tornado;
@@ -20,11 +29,6 @@ public class PlayerController : MonoBehaviour
 
     // Switching to Different Forms
     public List<GameObject> disasterForms = new List<GameObject>();
-
-    // Audio Components
-    public MusicManager musicManager;
-    public SFXManager sFXManager;
-
     [HideInInspector] public bool canQuake;
     [HideInInspector] public bool canTornado;
     [HideInInspector] public bool canFire;
@@ -88,14 +92,44 @@ public class PlayerController : MonoBehaviour
 
         for (int i = 0; i < disasterForms.Count; i++)
         {
+            disasterForms[i].gameObject.SetActive(false);
+
+            if (disasterForms[i].name == newDisaster)
+            {
+                disasterForms[i].gameObject.SetActive(true);
+
+                for (int j = 0; j < portraitSpritesList.Count; j++)
+                {
+                    if (portraitSpritesList[j].name == newDisaster)
+                    {
+                        portraitSprite.sprite = portraitSpritesList[j];
+                    }
+                }
+            }
+        }
+
+/*
+        for (int i = 0; i < disasterForms.Count; i++)
+        {
             if (disasterForms[i].name != newDisaster)
             {
-                disasterForms[i].gameObject.SetActive(false);
+                
             }
             else
             {
                 disasterForms[i].gameObject.SetActive(true);
+                for(int j = 0; j < portraitSpritesList.Count; j++)
+                {
+                    if (portraitSpritesList[i].name == newDisaster)
+                    {
+                        portraitSprite.GetComponent<Image>().sprite = portraitSpritesList[j];
+                    }
+
+                }
             }
         }
+*/
     }
+
+
 }
