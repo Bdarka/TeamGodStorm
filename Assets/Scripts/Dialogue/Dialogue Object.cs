@@ -9,8 +9,8 @@ using UnityEngine.UI;
 public class DialogueObject : ScriptableObject
 {
     [SerializeField] [TextArea] private string[] dialogue;
-    [SerializeField] public Image portriatLeft;
-    [SerializeField] public Image portraitRight;
+    [SerializeField] public Sprite portriatLeft;
+    [SerializeField] public Sprite portraitRight;
 
     public string[] Dialogue => dialogue;
 }
