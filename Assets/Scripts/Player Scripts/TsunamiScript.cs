@@ -64,7 +64,7 @@ public class TsunamiScript : MonoBehaviour
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
             if (b != null && c.gameObject != prevCollision)
             {
-                b.TakeDamage("Tsunami");
+                b.TakeDamage("Tsunami", playerController);
             }
             prevCollision = c.gameObject;
         }

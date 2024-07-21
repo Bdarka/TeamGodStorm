@@ -73,7 +73,7 @@ public class TornadoScript : MonoBehaviour
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
             if (b != null && c.gameObject != prevCollision)
             {
-                b.TakeDamage("Tornado");
+                b.TakeDamage("Tornado", playerController);
             }
             prevCollision = c.gameObject;
         }

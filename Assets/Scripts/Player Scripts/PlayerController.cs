@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using TMPro;
 
 public enum DisasterType
 {
@@ -21,6 +23,9 @@ public class PlayerController : MonoBehaviour
     // Portrait Switch 
     public UnityEngine.UI.Image portraitSprite;
     public List<Sprite> portraitSpritesList = new List<Sprite>();
+
+    // Damage Display 
+    public GameObject damageText;
 
     // Seperates player abilities so that they have their own movement + colliders
     public EarthquakeScript earthquake;
@@ -131,5 +136,14 @@ public class PlayerController : MonoBehaviour
 */
     }
 
+
+    public void ShowDamage(int damage, Color displayColor)
+    {
+        TextMeshProUGUI damageDisplay = damageText.GetComponent<TextMeshProUGUI>();
+
+        damageDisplay. text = damage.ToString();
+        damageDisplay.color = displayColor;
+        damageText.GetComponent<Animator>().SetTrigger("StartAnim");
+    }
 
 }

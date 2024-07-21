@@ -65,21 +65,30 @@ public class BuildingScript : MonoBehaviour
         transform.LookAt(transform.position + cam.forward);
     }
 
-    public void TakeDamage(string disaster)
+    public void TakeDamage(string disaster, PlayerController playerController)
     {
+        int buildingDamage = 0;
+        Color color = Color.white;
+
         if(disaster == Weakness.ToString())
         {
-            buildingHealth -= 4;
-            
+            buildingDamage = 4;
+            color = Color.red;
         }
+        /*
         else if(disaster == Resistance.ToString())
         {
-            buildingHealth -= 3;
+            buildingHealth -= 1;
         }
+        */
+
         else
         {
-            buildingHealth -= 2;
+            buildingDamage = 2;
         }
+
+        buildingHealth -= buildingDamage;
+        playerController.ShowDamage(buildingDamage, color);
 
         ChangeSprite(buildingHealth, disaster);
     }

@@ -53,7 +53,8 @@ public class EarthquakeScript : MonoBehaviour
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
             if(b != null && c.gameObject != prevCollision)
             {
-                b.TakeDamage("Earthquake");
+                b.TakeDamage("Earthquake", playerController);
+
             }
             prevCollision = c.gameObject;
         }

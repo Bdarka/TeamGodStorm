@@ -53,7 +53,7 @@ public class FireScript : MonoBehaviour
             BuildingScript b = c.gameObject.GetComponent<BuildingScript>();
             if (b != null && c.gameObject != prevCollision)
             {
-                b.TakeDamage("Fire");
+                b.TakeDamage("Fire", playerController);
             }
             prevCollision = c.gameObject;
         }
