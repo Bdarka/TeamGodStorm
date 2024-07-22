@@ -73,7 +73,8 @@ public class BuildingScript : MonoBehaviour
         if(disaster == Weakness.ToString())
         {
             buildingDamage = 4;
-            color = Color.red;
+            color = Color.green;
+            destructionPoints = 100;
         }
         /*
         else if(disaster == Resistance.ToString())
@@ -85,12 +86,19 @@ public class BuildingScript : MonoBehaviour
         else
         {
             buildingDamage = 2;
+            color = Color.red;
+            destructionPoints = -100;
         }
 
         buildingHealth -= buildingDamage;
         playerController.ShowDamage(buildingDamage, color);
 
         ChangeSprite(buildingHealth, disaster);
+
+        if(buildingHealth >= 0)
+        {
+            statTracker.BuildingDestroyedBy(disaster, destructionPoints);
+        }
     }
 
     public void ChangeSprite(int health, string disaster)

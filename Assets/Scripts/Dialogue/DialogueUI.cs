@@ -15,7 +15,6 @@ public class DialogueUI : MonoBehaviour
     [SerializeField] public GameObject portrait0;
     [SerializeField] public GameObject portriat1;
 
-
     public bool IsOpen{get; private set;}
     private TypewriterEffect typewriterEffect;
 
@@ -34,6 +33,7 @@ public class DialogueUI : MonoBehaviour
         
         dialogueBox.SetActive(true);
         portrait0.SetActive(true);
+        
         portriat1.SetActive(true);
 
         StartCoroutine(StepThroughDialogue(dialogueObject));

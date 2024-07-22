@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(GoodEnd.name);
         }
 
-        else
+        else 
         {
             SceneManager.LoadScene(BadEnd.name);
         }

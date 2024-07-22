@@ -18,5 +18,5 @@ MonoBehaviour:
   - ho ho
   - "ok\t"
   - lets go
-  portriatLeft: {fileID: 0}
+  portriatLeft: {fileID: 21300000, guid: 16795b4d1bafddb4fb50cb38361b4872, type: 3}
   portraitRight: {fileID: 21300000, guid: fe77d353ed2b8a244a07073e8abde552, type: 3}

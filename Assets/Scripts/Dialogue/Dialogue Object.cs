@@ -12,5 +12,7 @@ public class DialogueObject : ScriptableObject
     [SerializeField] public Sprite portriatLeft;
     [SerializeField] public Sprite portraitRight;
 
+    [SerializeField] public GameObject image1;
+
     public string[] Dialogue => dialogue;
 }

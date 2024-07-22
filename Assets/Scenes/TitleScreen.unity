@@ -4401,7 +4401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7baf5577602f9a4cbdcd80e9c459d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NewGameScene: OpeningCutscene
+  NewGameScene: GameplayScene
 --- !u!4 &1612302025
 Transform:
   m_ObjectHideFlags: 0
@@ -4439,7 +4439,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612302023}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: e5393948f3e91fe40b88970612d685cb, type: 2}
   m_audioClip: {fileID: 8300000, guid: 05e1ae5a408ffce42a1ea73ff00962a5, type: 3}

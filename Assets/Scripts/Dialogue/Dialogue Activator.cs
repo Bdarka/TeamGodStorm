@@ -8,8 +8,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable
 {
     [SerializeField] private DialogueObject dialogueObject;
     [SerializeField] public GameObject canTalk;
-    
-    
 
     private void Start(){
         canTalk.SetActive(false);
@@ -18,8 +16,6 @@ public class DialogueActivator : MonoBehaviour, IInteractable
         if(other.CompareTag("Player") && other.TryGetComponent(out DefaultFormScript player)){
             player.Interactable = this;
             canTalk.SetActive(true);
-
-
         }
         
     }

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d189331e2096f4d448572e002b247bd5, type: 3}
+  m_Name: Axolatl 1
+  m_EditorClassIdentifier: 
+  dialogue:
+  - "Hi I'm a nerd\t"
+  - COOL
+  - WEEE
+  portriatLeft: {fileID: 21300000, guid: 0decae113689dab4e8da3ad9d13e740d, type: 3}
+  portraitRight: {fileID: 21300000, guid: fe77d353ed2b8a244a07073e8abde552, type: 3}
+  image1: {fileID: 0}
