@@ -20,9 +20,14 @@ public class TitleScreen : MonoBehaviour
         
     }
 
-    public void NewGame()
+    public void StartGame()
     {
-        SceneManager.LoadScene(NewGameScene);
+        SceneManager.LoadScene("OpeningCutscene");
+    }
+
+    public void Credits()
+    { 
+        SceneManager.LoadScene("Credits");
     }
 
     public void ExitGame()
